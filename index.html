@@ -1,11 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My Personal Site</title>
-  <link rel="stylesheet" href="style.css">
+
+    <!--
+        NOTEBOOK — VERSION 1
+        Justin Webster
+
+        The <head> contains information ABOUT the website.
+        Most of this will not appear directly on the page.
+    -->
+
+    <meta charset="UTF-8">
+
+    <!-- Makes the website resize correctly on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Text that appears in the browser tab -->
+    <title>Justin Webster — Notebook</title>
+
+    <!-- Short description for search engines -->
+    <meta
+        name="description"
+        content="Notebook is the personal portfolio of Justin Webster — a place for ideas, experiments, artwork, technology, and things made along the way."
+    >
+
+    <!-- Our CSS file is directly beside index.html -->
+    <link rel="stylesheet" href="style.css">
+
+    <!--
+        FONT
+
+        Manrope gives us a clean editorial foundation.
+
+        The artwork already contains a lot of personality,
+        so the website typography does not need to imitate
+        handwriting everywhere.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
 </head>
+
+
 <body>
-  <!-- Add your HTML content here -->
+
+
+    <!-- =====================================================
+         HEADER
+         =====================================================
+
+         Intentionally simple.
+
+         We don't need a giant navigation bar.
+         The artwork and page composition should be louder
+         than the website controls.
+    -->
+
+    <header class="site-header">
+
+        <a class="site-name" href="#top">
+            Justin Webster
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+
+            <a href="#work">Work</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main id="top">
+
+
+        <!-- =================================================
+             HERO
+             =================================================
+
+             The first thing we communicate is NOT:
+
+             "Cybersecurity student."
+
+             We start with the reason behind the work.
+
+             The happy face acts more like a margin drawing
+             than a portfolio image.
+        -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="eyebrow">
+                    Notebook / Vol. 01
+                </p>
+
+                <h1>
+                    I make things
+                    <span>to figure things out.</span>
+                </h1>
+
+                <p class="hero-intro">
+                    A notebook of drawings, experiments,
+                    websites, ideas, mistakes, and whatever
+                    I'm curious enough to make next.
+                </p>
+
+            </div>
+
+
+            <div class="hero-art">
+
+                <!--
+                    Your files live inside the "img" folder.
+
+                    Because index.html sits directly beside that
+                    folder, the path begins with:
+
+                    img/
+                -->
+
+                <img
+                    src="img/happy face.png"
+                    alt="Hand-drawn melting smiley face"
+                >
+
+                <p class="scribble">
+                    still figuring it out
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SMALL INTRODUCTION
+             =================================================
+
+             This section gives the visitor context without
+             turning the homepage into a résumé.
+        -->
+
+        <section class="intro">
+
+            <p class="section-number">
+                01
+            </p>
+
+
+            <div class="intro-statement">
+
+                <p>
+                    I'm Justin.
+                </p>
+
+                <p>
+                    I like making things that live somewhere
+                    between <strong>useful</strong>,
+                    <strong>strange</strong>, and
+                    <strong>personal</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="intro-note">
+
+                <p>
+                    IT + Cybersecurity
+                </p>
+
+                <p>
+                    Arizona State University
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OBSERVATION
+             =================================================
+
+             One of the recurring ideas in the artwork is
+             observation:
+
+             eyes
+             weather
+             characters
+             ordinary objects
+
+             Rather than explaining that idea, we let the
+             artwork create the moment.
+        -->
+
+        <section class="observation">
+
+            <div class="observation-clouds">
+
+                <img
+                    src="img/thunder clouds.png"
+                    alt="Pattern of hand-drawn rain and thunder clouds"
+                >
+
+            </div>
+
+
+            <div class="observation-copy">
+
+                <p class="eyebrow">
+                    Look closer.
+                </p>
+
+                <h2>
+                    Curiosity usually starts with noticing
+                    something small.
+                </h2>
+
+            </div>
+
+
+            <div class="observation-eye">
+
+                <img
+                    src="img/eye drawing.png"
+                    alt="Detailed black and white drawing of an eye"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             WORK
+             =================================================
+
+             This intentionally DOES NOT behave like a normal
+             portfolio gallery.
+
+             Each project gets its own composition.
+
+             The artwork isn't decoration around the projects.
+             It IS part of the project's visual language.
+        -->
+
+        <section class="work" id="work">
+
+
+            <div class="section-heading">
+
+                <p class="section-number">
+                    02
+                </p>
+
+                <h2>
+                    Things I've made.
+                </h2>
+
+                <p>
+                    Some finished.
+                    Some experimental.
+                    Some made just because I needed to see
+                    what would happen.
+                </p>
+
+            </div>
+
+
+
+            <!-- ---------------------------------------------
+                 PIECE 01
+                 --------------------------------------------- -->
+
+            <article class="piece piece-large">
+
+                <div class="piece-art">
+
+                    <img
+                        src="img/kodak co.png"
+                        alt="Illustration of a dog wearing sunglasses with Kodak inspired typography"
+                    >
+
+                </div>
+
+
+                <div class="piece-info">
+
+                    <p class="piece-number">
+                        001
+                    </p>
+
+                    <h3>
+                        Kodak Co.
+                    </h3>
+
+                    <p>
+                        Illustration, character work,
+                        typography, and identity exploration.
+                    </p>
+
+                    <p class="piece-note">
+                        Draw first. Explain later.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ---------------------------------------------
+                 PIECE 02
+
+                 Here two drawings are allowed to interact
+                 instead of putting them in separate cards.
+                 --------------------------------------------- -->
+
+            <article class="piece piece-split">
+
+                <div class="piece-info">
+
+                    <p class="piece-number">
+                        002
+                    </p>
+
+                    <h3>
+                        Characters from nowhere.
+                    </h3>
+
+                    <p>
+                        Drawing is often where an idea starts
+                        before I know what the idea actually is.
+                    </p>
+
+                </div>
+
+
+                <div class="piece-art piece-art-pair">
+
+                    <img
+                        src="img/skeleton cowboy.png"
+                        alt="Ink drawing of a skeleton wearing a cowboy hat"
+                    >
+
+                    <img
+                        src="img/cat cigarette.png"
+                        alt="Reference image beside an ink drawing of a cat wearing a beanie"
+                    >
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ---------------------------------------------
+                 PIECE 03
+                 --------------------------------------------- -->
+
+            <article class="piece piece-poster">
+
+                <div class="piece-art">
+
+                    <img
+                        src="img/overdrive.png"
+                        alt="Experimental abstract Overdrive artwork"
+                    >
+
+                </div>
+
+
+                <div class="piece-info">
+
+                    <p class="piece-number">
+                        003
+                    </p>
+
+                    <h3>
+                        Overdrive.
+                    </h3>
+
+                    <p>
+                        Sometimes the process is less about
+                        drawing an object and more about
+                        finding movement, texture, and energy.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ---------------------------------------------
+                 VISUAL INTERRUPTION
+
+                 This is deliberately not another project.
+
+                 Notebook needs pauses, weird little moments,
+                 and changes of rhythm.
+                 --------------------------------------------- -->
+
+            <div class="visual-break">
+
+                <img
+                    src="img/purple squiggle_0246.png"
+                    alt="Abstract purple, blue, and black distorted drawing"
+                >
+
+                <p>
+                    Not everything needs a category.
+                </p>
+
+            </div>
+
+
+
+            <!-- ---------------------------------------------
+                 PIECE 04
+                 --------------------------------------------- -->
+
+            <article class="piece piece-large">
+
+                <div class="piece-info">
+
+                    <p class="piece-number">
+                        004
+                    </p>
+
+                    <h3>
+                        Learning by remaking.
+                    </h3>
+
+                    <p>
+                        I learn best when I can take something
+                        apart, understand why it works, and
+                        rebuild it in my own way.
+                    </p>
+
+                </div>
+
+
+                <div class="piece-art">
+
+                    <img
+                        src="img/reese eye.png"
+                        alt="Detailed digital illustration of an eye"
+                    >
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROCESS
+             =================================================
+
+             The puzzle artwork already communicates the idea
+             better than a row of software icons ever could.
+
+             So we use it to talk about how creative and
+             technical thinking overlap.
+        -->
+
+        <section class="process">
+
+            <div class="process-art">
+
+                <img
+                    src="img/puzzle.png"
+                    alt="Illustration of a brain made partly from puzzle pieces"
+                >
+
+            </div>
+
+
+            <div class="process-copy">
+
+                <p class="section-number">
+                    03
+                </p>
+
+                <p class="eyebrow">
+                    How I work
+                </p>
+
+                <h2>
+                    Make connections one piece at a time.
+                </h2>
+
+                <p>
+                    Design and technology don't feel like
+                    separate interests to me.
+                </p>
+
+                <p>
+                    Both are ways of understanding systems,
+                    finding patterns, solving problems, and
+                    turning an idea into something real.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EXPERIMENT STRIP
+             =================================================
+
+             Smaller pieces appear here almost like things
+             taped into the edge of a notebook.
+
+             Still NOT a gallery.
+        -->
+
+        <section class="experiments">
+
+            <div class="experiments-heading">
+
+                <p class="eyebrow">
+                    Loose pages
+                </p>
+
+                <h2>
+                    Experiments count too.
+                </h2>
+
+            </div>
+
+
+            <div class="experiment-row">
+
+                <figure class="experiment experiment-one">
+
+                    <img
+                        src="img/figure it out.png"
+                        alt="Two simple colorful characters beneath the words Figure it out"
+                    >
+
+                    <figcaption>
+                        Figure it out.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="experiment experiment-two">
+
+                    <img
+                        src="img/coffee.png"
+                        alt="Hand-drawn coffee cup illustration"
+                    >
+
+                    <figcaption>
+                        Not feelin' so hot.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="experiment experiment-three">
+
+                    <img
+                        src="img/banana split.png"
+                        alt="Hand-drawn banana character illustration"
+                    >
+
+                    <figcaption>
+                        Split life.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ABOUT
+             =================================================
+
+             This is where the visitor finally gets the more
+             traditional "who is this person?" information.
+
+             By now they've already experienced the work.
+        -->
+
+        <section class="about" id="about">
+
+
+            <div class="about-heading">
+
+                <p class="section-number">
+                    04
+                </p>
+
+                <p class="eyebrow">
+                    About
+                </p>
+
+            </div>
+
+
+            <div class="about-main">
+
+                <h2>
+                    I'm interested in what happens when
+                    creativity and technology stop pretending
+                    they're different things.
+                </h2>
+
+
+                <div class="about-columns">
+
+                    <div>
+
+                        <p>
+                            My name is Justin Webster. I'm an
+                            IT student at Arizona State
+                            University concentrating in
+                            Cybersecurity.
+                        </p>
+
+                        <p>
+                            Outside of that, I spend my time
+                            exploring web development, graphic
+                            design, digital art, music
+                            production, and whatever else gives
+                            me an excuse to learn something new.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p>
+                            Making things grounds me.
+                        </p>
+
+                        <p>
+                            It gives me a way to understand an
+                            idea instead of just thinking about
+                            it.
+                        </p>
+
+                        <p>
+                            This website is part portfolio,
+                            part notebook, and part record of
+                            that process.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PERSONAL ART MOMENT
+             =================================================
+
+             A quiet break before the ending.
+
+             No explanation necessary.
+        -->
+
+        <section class="quiet-page">
+
+            <img
+                src="img/hotdog.png"
+                alt="Minimal hand-drawn character standing beside a hot dog cart"
+            >
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACT / FINAL THOUGHT
+             =================================================
+
+             The goal isn't merely:
+             "hire me."
+
+             The visitor should leave wanting to make
+             something themselves.
+        -->
+
+        <section class="contact" id="contact">
+
+
+            <div class="contact-copy">
+
+                <p class="section-number">
+                    05
+                </p>
+
+                <p class="eyebrow">
+                    End of this page.
+                </p>
+
+                <h2>
+                    Now go make something.
+                </h2>
+
+                <p>
+                    It doesn't have to be useful.
+                    It doesn't have to be perfect.
+                    It doesn't even have to make sense yet.
+                </p>
+
+                <p>
+                    Start anyway.
+                </p>
+
+            </div>
+
+
+            <div class="contact-art">
+
+                <img
+                    src="img/ghost hotdog.png"
+                    alt="Playful ghost character illustration"
+                >
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            Justin Webster
+        </p>
+
+        <p>
+            Notebook / V1
+        </p>
+
+        <p>
+            Made by hand + keyboard.
+        </p>
+
+    </footer>
+
+
 </body>
+
 </html>

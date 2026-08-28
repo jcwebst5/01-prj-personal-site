@@ -1,1 +1,1385 @@
-/* Add you CSS here */
+/* ==========================================================
+   NOTEBOOK — VERSION 1
+   Justin Webster
+   ==========================================================
+
+   DESIGN IDEA
+
+   Notebook should feel like moving through someone's
+   creative thinking rather than scrolling through a
+   traditional portfolio.
+
+   That means:
+
+   - lots of breathing room
+   - oversized typography
+   - artwork used as part of compositions
+   - uneven / unexpected layouts
+   - very few boxes
+   - very few decorative UI elements
+   - simple typography
+   - occasional handwritten-feeling notes
+   - quiet sections followed by visual interruptions
+
+   This file intentionally uses straightforward CSS.
+
+   Most layouts use Flexbox so they are easier to understand
+   and modify later.
+   ========================================================== */
+
+
+/* ==========================================================
+   1. BASIC RESET
+   ==========================================================
+
+   Browsers add their own default spacing.
+
+   Removing some of that gives us predictable control.
+   ========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: #f7f6f1;
+    color: #111111;
+
+    font-family: "Manrope", Arial, sans-serif;
+
+    line-height: 1.5;
+}
+
+
+/* Remove default image behavior that can create
+   little gaps underneath images. */
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+/* Links inherit the surrounding text color. */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Remove some default browser spacing. */
+
+h1,
+h2,
+h3,
+p,
+figure {
+    margin-top: 0;
+}
+
+
+/* ==========================================================
+   2. SMALL REUSABLE TYPOGRAPHY
+   ========================================================== */
+
+
+/* Tiny labels used throughout the page. */
+
+.eyebrow {
+    margin-bottom: 24px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+/* Section numbers create a loose editorial system
+   without turning the website into a rigid template. */
+
+.section-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* ==========================================================
+   3. HEADER
+   ========================================================== */
+
+.site-header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 28px 4vw;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+.site-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+.site-nav {
+    display: flex;
+    gap: 28px;
+}
+
+
+.site-nav a {
+    font-size: 0.8rem;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.site-nav a:hover {
+    opacity: 0.45;
+}
+
+
+/* ==========================================================
+   4. HERO
+   ==========================================================
+
+   This is intentionally much more like an editorial cover
+   than a normal developer hero section.
+   ========================================================== */
+
+.hero {
+    min-height: 88vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 5vw;
+
+    padding: 7vh 7vw 12vh;
+}
+
+
+/* Text gets most of the horizontal space. */
+
+.hero-text {
+    width: 67%;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero h1 {
+    max-width: 1100px;
+
+    margin-bottom: 40px;
+
+    font-size: clamp(4rem, 8.5vw, 9rem);
+    font-weight: 500;
+
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+}
+
+
+/* Moving the second thought onto its own line makes the
+   sentence feel more deliberate. */
+
+.hero h1 span {
+    display: block;
+
+    margin-left: 7vw;
+
+    font-weight: 300;
+}
+
+
+.hero-intro {
+    max-width: 520px;
+
+    margin-left: 7vw;
+
+    font-size: clamp(1rem, 1.35vw, 1.3rem);
+    font-weight: 400;
+
+    line-height: 1.65;
+}
+
+
+/* The drawing sits off to the side like something that
+   wandered into the page. */
+
+.hero-art {
+    width: 27%;
+
+    align-self: flex-end;
+
+    margin-bottom: 3vh;
+
+    position: relative;
+
+    transform: rotate(3deg);
+}
+
+
+.hero-art img {
+    width: 100%;
+}
+
+
+/* A small informal annotation.
+
+   We use the normal typeface instead of downloading a fake
+   handwriting font. Rotation and placement provide enough
+   imperfection. */
+
+.scribble {
+    position: absolute;
+
+    right: -10px;
+    bottom: -45px;
+
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    transform: rotate(-7deg);
+}
+
+
+/* ==========================================================
+   5. INTRODUCTION
+   ========================================================== */
+
+.intro {
+    min-height: 70vh;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 7vw;
+
+    padding: 15vh 7vw;
+
+    border-top: 1px solid #111111;
+}
+
+
+.intro .section-number {
+    width: 10%;
+}
+
+
+.intro-statement {
+    width: 55%;
+
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    font-weight: 300;
+
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+}
+
+
+.intro-statement strong {
+    font-weight: 600;
+}
+
+
+.intro-note {
+    width: 20%;
+
+    margin-left: auto;
+    padding-top: 12px;
+
+    font-size: 0.8rem;
+}
+
+
+.intro-note p {
+    margin-bottom: 6px;
+}
+
+
+/* ==========================================================
+   6. OBSERVATION
+   ==========================================================
+
+   This section becomes a visual page rather than another
+   content block.
+   ========================================================== */
+
+.observation {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: #8ddce8;
+}
+
+
+/* Clouds become almost like wallpaper. */
+
+.observation-clouds {
+    width: 37%;
+
+    align-self: stretch;
+}
+
+
+.observation-clouds img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.observation-copy {
+    width: 31%;
+
+    padding: 60px 20px;
+}
+
+
+.observation-copy h2 {
+    margin: 0;
+
+    font-size: clamp(2rem, 4vw, 4.4rem);
+    font-weight: 400;
+
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+
+/* The eye is intentionally allowed to feel oversized. */
+
+.observation-eye {
+    width: 30%;
+
+    padding-right: 4vw;
+
+    transform: rotate(2deg);
+}
+
+
+/* ==========================================================
+   7. WORK
+   ========================================================== */
+
+.work {
+    padding: 18vh 7vw;
+}
+
+
+.section-heading {
+    max-width: 900px;
+
+    margin-bottom: 22vh;
+}
+
+
+.section-heading h2 {
+    margin-bottom: 28px;
+
+    font-size: clamp(3.5rem, 7vw, 8rem);
+    font-weight: 400;
+
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+
+.section-heading > p:last-child {
+    max-width: 500px;
+
+    margin-left: 25%;
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   8. GENERAL PIECE / PROJECT STYLES
+   ==========================================================
+
+   These are intentionally NOT cards.
+
+   No rounded rectangle.
+   No shadow.
+   No "View Project" button.
+
+   Artwork and text simply share the page.
+   ========================================================== */
+
+.piece {
+    display: flex;
+    align-items: center;
+
+    gap: 8vw;
+
+    margin-bottom: 28vh;
+}
+
+
+.piece-art {
+    width: 60%;
+}
+
+
+.piece-art img {
+    width: 100%;
+}
+
+
+.piece-info {
+    width: 28%;
+}
+
+
+.piece-number {
+    margin-bottom: 60px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.piece-info h3 {
+    margin-bottom: 25px;
+
+    font-size: clamp(2rem, 3.5vw, 4rem);
+    font-weight: 400;
+
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+
+.piece-info > p:not(.piece-number):not(.piece-note) {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+.piece-note {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    font-size: 0.75rem;
+
+    transform: rotate(-4deg);
+}
+
+
+/* ==========================================================
+   9. INDIVIDUAL PIECE COMPOSITIONS
+   ========================================================== */
+
+
+/* Kodak gets a large confident opening position. */
+
+.piece-large .piece-art {
+    width: 65%;
+}
+
+
+.piece-large .piece-info {
+    width: 25%;
+}
+
+
+/* Reverse every later large piece so the layout doesn't
+   become predictable. */
+
+.piece-large:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+
+/* Character section */
+
+.piece-split {
+    align-items: flex-start;
+}
+
+
+.piece-split .piece-info {
+    width: 25%;
+
+    padding-top: 10vh;
+}
+
+
+.piece-art-pair {
+    width: 65%;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 3vw;
+}
+
+
+.piece-art-pair img:first-child {
+    width: 43%;
+
+    margin-top: 15vh;
+
+    transform: rotate(-3deg);
+}
+
+
+.piece-art-pair img:last-child {
+    width: 54%;
+
+    transform: rotate(2deg);
+}
+
+
+/* Overdrive receives a lot of white space around it. */
+
+.piece-poster {
+    justify-content: center;
+
+    padding: 10vh 0;
+}
+
+
+.piece-poster .piece-art {
+    width: 55%;
+}
+
+
+.piece-poster .piece-info {
+    width: 25%;
+
+    align-self: flex-end;
+
+    margin-bottom: 7vh;
+}
+
+
+/* ==========================================================
+   10. VISUAL BREAK
+   ==========================================================
+
+   This intentionally interrupts the expected page rhythm.
+   ========================================================== */
+
+.visual-break {
+    min-height: 95vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 5vh -7vw 25vh;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.visual-break img {
+    width: min(850px, 72vw);
+
+    transform: rotate(-5deg);
+}
+
+
+.visual-break p {
+    position: absolute;
+
+    right: 8vw;
+    bottom: 10vh;
+
+    font-size: 0.8rem;
+
+    transform: rotate(5deg);
+}
+
+
+/* ==========================================================
+   11. PROCESS
+   ========================================================== */
+
+.process {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8vw;
+
+    padding: 15vh 7vw;
+
+    background: #ffffff;
+}
+
+
+.process-art {
+    width: 52%;
+}
+
+
+.process-art img {
+    width: 100%;
+}
+
+
+.process-copy {
+    width: 36%;
+}
+
+
+.process-copy h2 {
+    margin-bottom: 40px;
+
+    font-size: clamp(2.8rem, 5vw, 6rem);
+    font-weight: 400;
+
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+
+.process-copy > p:not(.section-number):not(.eyebrow) {
+    max-width: 470px;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   12. EXPERIMENTS
+   ========================================================== */
+
+.experiments {
+    padding: 20vh 7vw;
+}
+
+
+.experiments-heading {
+    margin-bottom: 14vh;
+}
+
+
+.experiments-heading h2 {
+    font-size: clamp(3rem, 6vw, 7rem);
+    font-weight: 300;
+
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+
+.experiment-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 4vw;
+}
+
+
+/* Each experiment deliberately gets different proportions. */
+
+.experiment {
+    margin: 0;
+}
+
+
+.experiment-one {
+    width: 30%;
+
+    margin-top: 15vh;
+
+    transform: rotate(-2deg);
+}
+
+
+.experiment-two {
+    width: 22%;
+
+    transform: rotate(3deg);
+}
+
+
+.experiment-three {
+    width: 30%;
+
+    margin-top: 27vh;
+
+    transform: rotate(1deg);
+}
+
+
+.experiment img {
+    width: 100%;
+}
+
+
+.experiment figcaption {
+    margin-top: 15px;
+
+    font-size: 0.7rem;
+}
+
+
+/* ==========================================================
+   13. ABOUT
+   ========================================================== */
+
+.about {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8vw;
+
+    padding: 20vh 7vw;
+
+    background: #111111;
+    color: #f7f6f1;
+}
+
+
+.about-heading {
+    width: 15%;
+}
+
+
+.about-main {
+    width: 75%;
+}
+
+
+.about-main h2 {
+    max-width: 1100px;
+
+    margin-bottom: 13vh;
+
+    font-size: clamp(3rem, 6vw, 7rem);
+    font-weight: 300;
+
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+
+.about-columns {
+    display: flex;
+
+    gap: 10vw;
+}
+
+
+.about-columns > div {
+    width: 40%;
+}
+
+
+.about-columns p {
+    font-size: 0.95rem;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   14. QUIET PAGE
+   ==========================================================
+
+   Almost nothing happens here.
+
+   That's the point.
+
+   After a lot of information, empty space becomes useful.
+   ========================================================== */
+
+.quiet-page {
+    min-height: 115vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15vh 7vw;
+
+    background: #ffffff;
+}
+
+
+.quiet-page img {
+    width: min(500px, 45vw);
+
+    transform: translateX(-10vw);
+}
+
+
+/* ==========================================================
+   15. CONTACT / ENDING
+   ========================================================== */
+
+.contact {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8vw;
+
+    padding: 15vh 7vw;
+
+    background: #dce8cc;
+}
+
+
+.contact-copy {
+    width: 55%;
+}
+
+
+.contact-copy h2 {
+    max-width: 850px;
+
+    margin-bottom: 45px;
+
+    font-size: clamp(4rem, 8vw, 9rem);
+    font-weight: 400;
+
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+}
+
+
+.contact-copy > p:not(.section-number):not(.eyebrow) {
+    max-width: 500px;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+.contact-copy > p:last-child {
+    margin-top: 40px;
+
+    font-weight: 700;
+}
+
+
+.contact-art {
+    width: 34%;
+
+    align-self: flex-end;
+
+    transform: rotate(2deg);
+}
+
+
+.contact-art img {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   16. FOOTER
+   ========================================================== */
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 35px 4vw;
+
+    background: #111111;
+    color: #f7f6f1;
+
+    font-size: 0.7rem;
+}
+
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* ==========================================================
+   17. RESPONSIVE DESIGN
+   ==========================================================
+
+   Everything above describes the desktop composition.
+
+   Below we adapt that composition for smaller screens.
+
+   We are NOT trying to preserve every unusual desktop
+   placement on mobile.
+
+   Mobile should remain expressive, but it also needs to
+   remain readable.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   TABLETS / SMALL LAPTOPS
+   ---------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+
+    .hero-text {
+        width: 72%;
+    }
+
+
+    .hero-art {
+        width: 25%;
+    }
+
+
+    .intro {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+
+    .work,
+    .experiments,
+    .process,
+    .about,
+    .contact {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+
+    .piece {
+        gap: 5vw;
+    }
+
+
+    .piece-info {
+        width: 33%;
+    }
+
+
+    .about-main {
+        width: 80%;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   PHONES
+   ---------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+
+    /* ---------------- HEADER ---------------- */
+
+    .site-header {
+        padding: 22px 20px;
+    }
+
+
+    .site-nav {
+        gap: 14px;
+    }
+
+
+    .site-nav a {
+        font-size: 0.7rem;
+    }
+
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+        min-height: auto;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 13vh 20px 15vh;
+    }
+
+
+    .hero-text {
+        width: 100%;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 17vw, 6rem);
+    }
+
+
+    .hero h1 span {
+        margin-left: 0;
+    }
+
+
+    .hero-intro {
+        margin-left: 0;
+
+        max-width: 90%;
+    }
+
+
+    .hero-art {
+        width: 55%;
+
+        align-self: flex-end;
+
+        margin-top: 9vh;
+        margin-right: 5vw;
+    }
+
+
+    /* ---------------- INTRO ---------------- */
+
+    .intro {
+        min-height: auto;
+
+        flex-direction: column;
+
+        padding: 12vh 20px;
+    }
+
+
+    .intro .section-number,
+    .intro-statement,
+    .intro-note {
+        width: 100%;
+    }
+
+
+    .intro-statement {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+    }
+
+
+    .intro-note {
+        margin-top: 8vh;
+    }
+
+
+    /* ---------------- OBSERVATION ---------------- */
+
+    .observation {
+        min-height: auto;
+
+        flex-direction: column;
+    }
+
+
+    .observation-clouds {
+        width: 100%;
+        height: 60vh;
+    }
+
+
+    .observation-copy {
+        width: 100%;
+
+        padding: 12vh 20px;
+    }
+
+
+    .observation-eye {
+        width: 75%;
+
+        align-self: flex-end;
+
+        padding: 0 20px 12vh;
+    }
+
+
+    /* ---------------- WORK ---------------- */
+
+    .work {
+        padding: 15vh 20px;
+    }
+
+
+    .section-heading {
+        margin-bottom: 15vh;
+    }
+
+
+    .section-heading > p:last-child {
+        margin-left: 0;
+    }
+
+
+    .piece,
+    .piece-large,
+    .piece-large:nth-of-type(even),
+    .piece-split,
+    .piece-poster {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7vh;
+
+        margin-bottom: 20vh;
+
+        padding: 0;
+    }
+
+
+    .piece-art,
+    .piece-large .piece-art,
+    .piece-poster .piece-art,
+    .piece-info,
+    .piece-large .piece-info,
+    .piece-split .piece-info,
+    .piece-poster .piece-info {
+        width: 100%;
+    }
+
+
+    .piece-info {
+        max-width: 90%;
+    }
+
+
+    .piece-number {
+        margin-bottom: 30px;
+    }
+
+
+    .piece-art-pair {
+        width: 100%;
+
+        gap: 15px;
+    }
+
+
+    .piece-art-pair img:first-child,
+    .piece-art-pair img:last-child {
+        width: calc(50% - 8px);
+
+        margin-top: 0;
+    }
+
+
+    /* ---------------- VISUAL BREAK ---------------- */
+
+    .visual-break {
+        min-height: 75vh;
+
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+
+    .visual-break img {
+        width: 95vw;
+    }
+
+
+    .visual-break p {
+        right: 25px;
+    }
+
+
+    /* ---------------- PROCESS ---------------- */
+
+    .process {
+        min-height: auto;
+
+        flex-direction: column;
+
+        padding: 15vh 20px;
+    }
+
+
+    .process-art,
+    .process-copy {
+        width: 100%;
+    }
+
+
+    .process-art {
+        margin-bottom: 8vh;
+    }
+
+
+    /* ---------------- EXPERIMENTS ---------------- */
+
+    .experiments {
+        padding: 15vh 20px;
+    }
+
+
+    .experiment-row {
+        flex-direction: column;
+
+        gap: 15vh;
+    }
+
+
+    .experiment-one,
+    .experiment-two,
+    .experiment-three {
+        width: 75%;
+
+        margin-top: 0;
+    }
+
+
+    .experiment-one {
+        align-self: flex-start;
+    }
+
+
+    .experiment-two {
+        align-self: flex-end;
+    }
+
+
+    .experiment-three {
+        align-self: center;
+    }
+
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about {
+        min-height: auto;
+
+        flex-direction: column;
+
+        padding: 15vh 20px;
+    }
+
+
+    .about-heading,
+    .about-main {
+        width: 100%;
+    }
+
+
+    .about-main h2 {
+        margin-top: 7vh;
+        margin-bottom: 10vh;
+    }
+
+
+    .about-columns {
+        flex-direction: column;
+
+        gap: 5vh;
+    }
+
+
+    .about-columns > div {
+        width: 100%;
+    }
+
+
+    /* ---------------- QUIET PAGE ---------------- */
+
+    .quiet-page {
+        min-height: 85vh;
+    }
+
+
+    .quiet-page img {
+        width: 75vw;
+
+        transform: translateX(-5vw);
+    }
+
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact {
+        min-height: auto;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 15vh 20px 5vh;
+    }
+
+
+    .contact-copy {
+        width: 100%;
+    }
+
+
+    .contact-copy h2 {
+        font-size: clamp(4rem, 18vw, 7rem);
+    }
+
+
+    .contact-art {
+        width: 70%;
+
+        align-self: flex-end;
+
+        margin-top: 10vh;
+    }
+
+
+    /* ---------------- FOOTER ---------------- */
+
+    .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 35px 20px;
+    }
+
+}
