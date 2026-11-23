@@ -69,7 +69,7 @@
             Justin Webster
         </a>
 
-        <nav class="site-nav" aria-label="Main navigation">
+        <nav class="site-nav" aria-label="Jump to a section">
 
             <a href="#work">Work</a>
 
@@ -1044,6 +1044,43 @@
 
     </footer>
 
+    <script>
+        // Move the navigation beside the page after the hero scrolls away.
+        const siteNav = document.querySelector(".site-nav");
+        const hero = document.querySelector(".hero");
+        const navLinks = Array.from(siteNav.querySelectorAll("a"));
+
+        function updateNavigation() {
+            const heroBottom = hero.getBoundingClientRect().bottom;
+            const showFloatingNav = heroBottom < window.innerHeight * 0.2;
+
+            siteNav.classList.toggle("is-following", showFloatingNav);
+
+            // Highlight the latest navigation section above the middle of the screen.
+            const readingLine = window.innerHeight * 0.4;
+            let currentLink = null;
+
+            navLinks.forEach(function (link) {
+                const section = document.querySelector(link.getAttribute("href"));
+
+                if (section.getBoundingClientRect().top <= readingLine) {
+                    currentLink = link;
+                }
+            });
+
+            navLinks.forEach(function (link) {
+                if (link === currentLink) {
+                    link.setAttribute("aria-current", "location");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", updateNavigation, { passive: true });
+        window.addEventListener("resize", updateNavigation);
+        updateNavigation();
+    </script>
 
 </body>
 
