@@ -252,16 +252,55 @@ figure {
    handwriting font. Rotation and placement provide enough
    imperfection. */
 
-.scribble {
+.hero-note {
     position: absolute;
 
     right: -10px;
     bottom: -45px;
+}
 
+
+.hero-note summary {
     font-size: 0.8rem;
     font-weight: 500;
 
+    cursor: pointer;
+
     transform: rotate(-7deg);
+}
+
+
+.hero-note summary::-webkit-details-marker {
+    display: none;
+}
+
+
+.hero-note summary::after {
+    content: "+";
+
+    display: inline-block;
+
+    margin-left: 5px;
+}
+
+
+.hero-note[open] summary::after {
+    content: "−";
+}
+
+
+.hero-note summary:focus-visible {
+    outline: 1px dashed currentColor;
+    outline-offset: 5px;
+}
+
+
+.hero-note p {
+    max-width: 180px;
+
+    margin: 12px 0 0;
+
+    font-size: 0.75rem;
 }
 
 
@@ -799,6 +838,56 @@ figure {
     font-size: 1rem;
 
     line-height: 1.8;
+}
+
+
+.process-steps {
+    max-width: 470px;
+
+    margin-top: 40px;
+}
+
+
+.process-steps-intro {
+    margin-bottom: 12px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+.process-steps details {
+    padding: 14px 0;
+
+    border-top: 1px solid #d5d5d5;
+}
+
+
+.process-steps summary {
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.process-steps summary:focus-visible {
+    outline: 1px dashed currentColor;
+    outline-offset: 5px;
+}
+
+
+.process-steps details p {
+    max-width: 430px;
+
+    margin: 12px 0 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
 }
 
 
